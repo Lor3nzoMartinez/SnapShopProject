@@ -19,6 +19,7 @@ public class SnapShopConfiguration
     theShop.setDefaultFilename("c:/hw5/billg.jpg");
     theShop.addFilter(new FlipHorizontalFilter(), "Flip Horizontal");
     theShop.addFilter(new FlipVerticalFilter(), "Flip Vertical");
+    theShop.addFilter(new NegativeFilter(), "Negative");
     // add your other filters below
   }
 }
