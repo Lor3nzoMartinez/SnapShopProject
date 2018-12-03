@@ -103,6 +103,30 @@ public class PixelImage
       }
     }
   }
+  
+  /*
+   * process each pixel in a pixelimage based on a 3x3 around it, 
+   * using a weighted array to weight it with various filters
+   */
+  
+  public void WeightedPixels(int[][] weights, PixelImage PI, int scale)
+  {
+	  Pixel[][] StartPixel = PI.getData();
+	  Pixel[][] returnPixels = PI.getData();
+	  for(int row = 1; row < PI.width - 1; row++) 
+	  {
+		  for(int col = 1; col < PI.height - 1; col++)
+		  {
+			  for(int AvgRow = -1; AvgRow <= 1; AvgRow ++)
+			  {
+				  for(int AvgCol = -1; AvgCol <= 1; AvgCol ++)
+				  {
+					  
+				  }
+			  }
+		  }
+	  }
+  }
 
   // add a method to compute a new image given weighted averages
 }
