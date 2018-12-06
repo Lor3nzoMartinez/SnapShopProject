@@ -109,23 +109,42 @@ public class PixelImage
    * using a weighted array to weight it with various filters
    */
   
-  public void WeightedPixels(int[][] weights, PixelImage PI, int scale)
+  public Pixel[][] WeightedPixels(int[][] weights, PixelImage PI, int scale)
   {
 	  Pixel[][] StartPixel = PI.getData();
 	  Pixel[][] returnPixels = PI.getData();
-	  for(int row = 1; row < PI.width - 1; row++) 
+	  for(int row = 1; row < PI.getHeight() - 1; row++) 
 	  {
-		  for(int col = 1; col < PI.height - 1; col++)
+		  for(int col = 1; col < PI.getWidth() - 1; col++)
 		  {
+			  int Red = 0;
+			  int Blue = 0;
+			  int Green = 0;
 			  for(int AvgRow = -1; AvgRow <= 1; AvgRow ++)
 			  {
 				  for(int AvgCol = -1; AvgCol <= 1; AvgCol ++)
 				  {
+					  //System.out.println(row + " " + col + " " + PI.getHeight() + " "+ PI.getWidth());
+					  Red += StartPixel[row + AvgRow][col + AvgCol].red 
+							  * weights[AvgRow + 1][AvgCol + 1];
+
+					  Green += StartPixel[row + AvgRow][col + AvgCol].green 
+							  * weights[AvgRow + 1][AvgCol + 1];
+
+					  Blue += StartPixel[row + AvgRow][col + AvgCol].blue 
+							  * weights[AvgRow + 1][AvgCol + 1];
 					  
 				  }
 			  }
+			  Red = Red/scale;
+			  Green = Green/scale;
+			  Blue = Blue/scale;
+			  Pixel pxl = new Pixel(Red,Green,Blue);
+			  returnPixels[row][col] = pxl;
+			  
 		  }
 	  }
+	  return returnPixels;
   }
 
   // add a method to compute a new image given weighted averages
