@@ -1,7 +1,5 @@
 /**
  * Filter that flips the image horizontally.
- * This class is COMPLETE. Don't change it. But model your other classes (such
- * as FlipVerticalFilter) after it.
  */
 public class FlipHorizontalFilter implements Filter
 {

@@ -22,6 +22,8 @@ public class SnapShopConfiguration
     theShop.addFilter(new NegativeFilter(), "Negative");
     theShop.addFilter(new GaussianFilter(), "Gaussian");
     theShop.addFilter(new LaplacianFilter(), "Laplacian");
+    theShop.addFilter(new UnsharpMaskingFilter(), "Unsharp Masking");
+    theShop.addFilter(new EdgyFilter(), "Edgy");
     // add your other filters below
   }
 }
