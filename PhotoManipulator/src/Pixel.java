@@ -15,8 +15,28 @@ public class Pixel
    */
   public Pixel(int red, int green, int blue)
   {
-    this.red = red;
-    this.green = green;
-    this.blue = blue;
+    this.red = Fixed(red);
+    this.green = Fixed(green);
+    this.blue = Fixed(blue);
+  }
+  
+  public static int Fixed(int fix)
+  {
+	  int fixed = 0;
+	  if(fix < 0)
+	  {
+		  fixed = 0;
+		  return fixed;
+	  }
+	  else if (fix > 255)
+	  {
+		  fixed = 255;
+		  return fixed;
+	  }
+	  else
+	  {
+		  fixed = fix;
+	  }
+	  return fixed;
   }
 }
